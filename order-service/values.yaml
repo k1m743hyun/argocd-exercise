@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: k1m743hyun/order-service
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: ClusterIP
