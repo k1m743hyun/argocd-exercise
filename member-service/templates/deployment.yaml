@@ -37,6 +37,22 @@ spec:
               path: /
               port: http
           resources:
+        - env:
+          - name: MEMBER_DB_URL
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: member.db.url
+          - name: MEMBER_DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: member.db.username
+          - name: MEMBER_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: member.db.password
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
